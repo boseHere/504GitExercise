@@ -1,16 +1,24 @@
-def function1(a):
-    b = dict()
-    for c in a:
-        if c not in b:
-            b[c] = 1
+#!/usr/bin/env python3
+
+"""Here is some documentation lmao"""
+
+def nuc_count_dict(seq):
+    nuc_dict = dict()
+    for nuc in seq:
+        if nuc not in nuc_dict:
+            nuc_dict[nuc] = 1
         else:
-            b[c] += 1
-    return b
+            nuc_dict[nuc] += 1
+    return nuc_dict
 
-def function2(a):
+def print_nuc_freqs(nuc_dict):
     print('freqs')
-    total = float(sum([a[b] for b in a.keys()]))
-    for b in a.keys():
-        print(b + ':' + str(a[b]/total))
+    total = float(sum([nuc_dict[nuc] for nuc in nuc_dict.keys()]))
+    for nuc in nuc_dict.keys():
+        print(nuc + ':' + str(nuc_dict[nuc]/total))
 
-function2(function1('ATCTGACGCGCGCCGC'))
+
+if __name__ == "__main__":
+    nuc_dict = nuc_count_dict('ATCTGACGCGCGCCGC') 
+    print_nuc_freqs(nuc_dict)
+
